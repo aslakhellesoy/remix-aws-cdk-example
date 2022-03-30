@@ -5,7 +5,7 @@ The deployment is done with the `aws-cdk v2`.
 
 ## Architecture
 
-![architecture](architecture.png)
+![architecture](infrastructure/diagram.png)
 
 ## 🧰 Setup
 
