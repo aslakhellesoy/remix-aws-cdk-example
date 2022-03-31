@@ -66,6 +66,19 @@ digraph "Diagram" {
         width = 2,
         height = 2.4819999999999998,
       ];
+      "RemixStack/HelloGolangFunction" [
+        label = " HelloGolangFunction",
+        fontsize = 12,
+        image = "/Users/Aslak.Hellesoy/git/florianwiech/remix-aws-cdk-example/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
       "RemixStack/RequestHandler" [
         label = " RequestHandler",
         fontsize = 12,
@@ -186,6 +199,9 @@ digraph "Diagram" {
     dir = "both",
   ];
   "RemixStack/WebsiteApi" -> "RemixStack/RequestHandler" [
+    dir = "both",
+  ];
+  "RemixStack/WebsiteApi" -> "RemixStack/HelloGolangFunction" [
     dir = "both",
   ];
   "RemixStack/CloudFront" -> "RemixStack/StaticAssetsBucket" [
