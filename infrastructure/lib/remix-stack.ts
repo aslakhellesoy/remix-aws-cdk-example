@@ -10,6 +10,7 @@ import * as lambda from "aws-cdk-lib/aws-lambda";
 import * as logs from "aws-cdk-lib/aws-logs";
 import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
+import { GoFunction } from "@aws-cdk/aws-lambda-go-alpha";
 import * as origin from "aws-cdk-lib/aws-cloudfront-origins";
 import * as api from "@aws-cdk/aws-apigatewayv2-alpha";
 import { HttpLambdaIntegration } from "@aws-cdk/aws-apigatewayv2-integrations-alpha";
@@ -26,6 +27,15 @@ export class RemixStack extends cdk.Stack {
       sources: [s3deploy.Source.asset(join(__dirname, "../../remix/public"))],
       destinationBucket: bucket,
       destinationKeyPrefix: "_static",
+    });
+
+    const goFn = new GoFunction(this, "HelloGolangFunction", {
+      runtime: lambda.Runtime.GO_1_X,
+      entry: join(__dirname, "../../golang/main.go"),
+    })
+
+    const goFnIntegration = new HttpLambdaIntegration("HelloGolangRequestHandlerIntegration", goFn, {
+      payloadFormatVersion: api.PayloadFormatVersion.VERSION_2_0,
     });
 
     const fn = new NodejsFunction(this, "RequestHandler", {
@@ -50,6 +60,10 @@ export class RemixStack extends cdk.Stack {
     const httpApi = new api.HttpApi(this, "WebsiteApi", {
       defaultIntegration: integration,
     });
+    httpApi.addRoutes({
+      path: '/golang',
+      integration: goFnIntegration
+    })
 
     const httpApiUrl = `${httpApi.httpApiId}.execute-api.${cdk.Stack.of(this).region}.${cdk.Stack.of(this).urlSuffix}`;
 

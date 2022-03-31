@@ -220,6 +220,11 @@
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigatewayv2-integrations-alpha/-/aws-apigatewayv2-integrations-alpha-2.18.0-alpha.0.tgz#d1a0b0b9ef1af4af0a19daa4f4e315f688d1edaf"
   integrity sha512-lwy94YaQ+uVrXseRSNL6vHvCF1EBv+LNf3f0pw/Zmk3U5MWXrzt17ICzEIJ1Kn/lkcE9PzNxFVVtfR0ZocHr6Q==
 
+"@aws-cdk/aws-lambda-go-alpha@^2.18.0-alpha.0":
+  version "2.18.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-lambda-go-alpha/-/aws-lambda-go-alpha-2.18.0-alpha.0.tgz#8f43439b4d4be36863b5aff2c12393013f8bb083"
+  integrity sha512-MKgPcTxQshrT272UvORTKjL9WTEDhIH8Z0QxV8A20AZz1jnToXIPM8Y7TUHKI8xMXzU+bVMaCoTS5vDpqZcpUA==
+
 "@aws-cdk/cloud-assembly-schema@1.150.0":
   version "1.150.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-schema/-/cloud-assembly-schema-1.150.0.tgz#b27197c15187260c6f8b62b4ed70d7e0c70a9f53"
