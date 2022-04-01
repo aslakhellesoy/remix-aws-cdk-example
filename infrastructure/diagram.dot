@@ -1,0 +1,232 @@
+digraph "Diagram" {
+  splines = "ortho";
+  pad = "1.0";
+  nodesep = "0.60";
+  ranksep = "0.75";
+  fontname = "Sans-Serif";
+  fontsize = "15";
+  dpi = "200";
+  rankdir = "BT";
+  compound = "true";
+  fontcolor = "#222222";
+  edge [
+    color = "#D5871488",
+    penwidth = 2,
+    arrowhead = "dot",
+    arrowtail = "dot",
+  ];
+  node [
+    shape = "box",
+    style = "rounded",
+    fixedsize = true,
+    width = 1.7,
+    height = 1.7,
+    labelloc = "c",
+    imagescale = true,
+    fontname = "Sans-Serif",
+    fontsize = 8,
+    margin = 8,
+  ];
+  subgraph "RemixStack" {
+    subgraph "cluster-SubGraph.RemixStack" {
+      graph [
+        label = "RemixStack",
+        labelloc = "b",
+        labeljust = "l",
+        margin = "10",
+        fontsize = "16",
+        penwidth = "2",
+        pencolor = "#888888",
+        style = "filled,rounded",
+        fillcolor = "#e4e4e4",
+      ];
+      "RemixStack/RemixRdsVpc" [
+        label = " RemixRdsVpc",
+        fontsize = 12,
+        image = "/Users/Aslak.Hellesoy/git/florianwiech/remix-aws-cdk-example/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-Virtual-Private-Cloud_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
+      "RemixStack/RemixDatabaseInstance" [
+        label = "\nRemixDatabaseInstance",
+        fontsize = 12,
+        image = "/Users/Aslak.Hellesoy/git/florianwiech/remix-aws-cdk-example/node_modules/cdk-dia/icons/aws/Resource/Res_Compute/Res_48_Dark/Res_Amazon-EC2_T3-Instance_48_Dark.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.4819999999999998,
+      ];
+      "RemixStack/StaticAssetsBucket" [
+        label = " StaticAssetsBucket",
+        fontsize = 12,
+        image = "/Users/Aslak.Hellesoy/git/florianwiech/remix-aws-cdk-example/node_modules/cdk-dia/icons/aws/Service/Arch_Storage/64/Arch_Amazon-S3-Standard_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
+      "RemixStack/Custom__CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C" [
+        label = " Custom \nCDKBucketDeployment86",
+        fontsize = 12,
+        image = "/Users/Aslak.Hellesoy/git/florianwiech/remix-aws-cdk-example/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.4819999999999998,
+      ];
+      "RemixStack/RequestHandler" [
+        label = " RequestHandler",
+        fontsize = 12,
+        image = "/Users/Aslak.Hellesoy/git/florianwiech/remix-aws-cdk-example/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
+      "RemixStack/WebsiteApi" [
+        label = " WebsiteApi",
+        fontsize = 12,
+        image = "/Users/Aslak.Hellesoy/git/florianwiech/remix-aws-cdk-example/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-API-Gateway_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 1.2,
+        height = 1.466,
+      ];
+      "RemixStack/RequestHandlerPolicy" [
+        label = " RequestHandlerPolicy",
+        fontsize = 12,
+        image = "/Users/Aslak.Hellesoy/git/florianwiech/remix-aws-cdk-example/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-CloudFront_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 1.2,
+        height = 1.466,
+      ];
+      "RemixStack/CloudFront" [
+        label = " CloudFront",
+        fontsize = 12,
+        image = "/Users/Aslak.Hellesoy/git/florianwiech/remix-aws-cdk-example/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-CloudFront_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 2,
+        height = 2.266,
+      ];
+      "RemixStack/DistributionUrlParameter" [
+        label = "\nDistributionUrlParame",
+        fontsize = 12,
+      ];
+      "RemixStack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole" [
+        label = " ServiceRole",
+        fontsize = 12,
+        image = "/Users/Aslak.Hellesoy/git/florianwiech/remix-aws-cdk-example/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+        imagescale = "true",
+        imagepos = "tc",
+        penwidth = "0",
+        shape = "node",
+        fixedsize = "true",
+        labelloc = "b",
+        width = 1.2,
+        height = 1.466,
+      ];
+      subgraph "cluster-SubGraph.DeployStaticAssets" {
+        graph [
+          label = "DeployStaticAssets",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#d6d6d6",
+        ];
+        "RemixStack/DeployStaticAssets/AwsCliLayer" [
+          label = " AwsCliLayer",
+          fontsize = 12,
+          image = "/Users/Aslak.Hellesoy/git/florianwiech/remix-aws-cdk-example/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.266,
+        ];
+        "RemixStack/DeployStaticAssets/CustomResource" [
+          label = " CloudFormation\nCustomResource\nCustomResource",
+          fontsize = 12,
+          image = "/Users/Aslak.Hellesoy/git/florianwiech/remix-aws-cdk-example/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.898,
+        ];
+      }
+    }
+  }
+  "RemixStack/RemixDatabaseInstance" -> "RemixStack/RemixRdsVpc" [
+    dir = "both",
+  ];
+  "RemixStack/StaticAssetsBucket" -> "RemixStack/CloudFront" [
+    dir = "both",
+  ];
+  "RemixStack/Custom__CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C" -> "RemixStack/StaticAssetsBucket" [
+    dir = "both",
+  ];
+  "RemixStack/Custom__CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C" -> "RemixStack/DeployStaticAssets/AwsCliLayer" [
+    dir = "both",
+  ];
+  "RemixStack/WebsiteApi" -> "RemixStack/RequestHandler" [
+    dir = "both",
+  ];
+  "RemixStack/CloudFront" -> "RemixStack/StaticAssetsBucket" [
+    dir = "both",
+  ];
+  "RemixStack/CloudFront" -> "RemixStack/WebsiteApi" [
+    dir = "both",
+  ];
+  "RemixStack/CloudFront" -> "RemixStack/RequestHandlerPolicy" [
+    dir = "both",
+  ];
+  "RemixStack/DistributionUrlParameter" -> "RemixStack/CloudFront" [
+    dir = "both",
+  ];
+}

@@ -3,6 +3,8 @@ import "source-map-support/register";
 import { Construct } from "constructs";
 import { join } from "path";
 import * as cdk from "aws-cdk-lib";
+import * as ec2 from "aws-cdk-lib/aws-ec2";
+import * as rds from "aws-cdk-lib/aws-rds";
 import * as ssm from "aws-cdk-lib/aws-ssm";
 import * as s3 from "aws-cdk-lib/aws-s3";
 import * as s3deploy from "aws-cdk-lib/aws-s3-deployment";
@@ -13,12 +15,29 @@ import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import * as origin from "aws-cdk-lib/aws-cloudfront-origins";
 import * as api from "@aws-cdk/aws-apigatewayv2-alpha";
 import { HttpLambdaIntegration } from "@aws-cdk/aws-apigatewayv2-integrations-alpha";
+import { SecretValue } from "aws-cdk-lib";
 
 export class RemixStack extends cdk.Stack {
   readonly distributionUrlParameterName = "/remix/distribution/url";
 
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
+
+    const vpc = new ec2.Vpc(this, "RemixRdsVpc", {
+    });
+
+    const postgres = new rds.DatabaseInstance(this, 'RemixDatabaseInstance', {
+      engine: rds.DatabaseInstanceEngine.postgres({ version: rds.PostgresEngineVersion.VER_14_1 }),
+      // optional, defaults to m5.large
+      instanceType: ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE3, ec2.InstanceSize.SMALL),
+      credentials: rds.Credentials.fromPassword('postgres', SecretValue.plainText(process.env.POSTGRES_PASSWORD!)),
+      vpc,
+      vpcSubnets: {
+        subnetType: ec2.SubnetType.PUBLIC,
+      },
+      deletionProtection: false,
+    });
+    postgres.connections.allowDefaultPortFromAnyIpv4()
 
     const bucket = new s3.Bucket(this, "StaticAssetsBucket");
 
